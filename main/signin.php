@@ -29,5 +29,6 @@ session_start();
 		</div>
 	</section>
 	<?php include 'foot.php'; ?>
+	
 </body>
 </html>

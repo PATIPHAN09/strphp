@@ -10,12 +10,13 @@ if(isset($_POST['save']))
     $row  = mysqli_fetch_array($sql);
     if(is_array($row))
     {
-      
         header("Location: index.php"); 
     }
     else
     {
-        echo "Invalid Password = " . $P;
+        echo "<h1>ID is not $user </h1>";
+        echo "PASSWORD is not =" . $P ."I Kuy";
+  
     }
 }
 ?>

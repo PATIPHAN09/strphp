@@ -1,10 +1,4 @@
-<?php
-	session_start();
-	include 'database.php';
-	$user= $_SESSION["user"];
-	$sql=mysqli_query($conn,"SELECT * FROM 'userlogin'");
-	$row  = mysqli_fetch_array($sql);
-?>
+
 <!doctype html>
 <html class="fixed">
 	<head>
