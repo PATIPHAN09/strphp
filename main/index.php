@@ -1,22 +1,21 @@
-
 <!doctype html>
 <html class="fixed">
 	<head>
-        <?php include 'head.php';?>
+        <?php include 'inc_head.php';?>
 	</head>
 	<body>
 		<section class="body">
 
 			<!-- start: header -->
 			<header class="header">
-                <?php include 'header.php';?>
+                <?php include 'inc_header.php';?>
 			</header>
 			<!-- end: header -->
 
 			<div class="inner-wrapper">
 				<!-- start: sidebar -->
 				<aside id="sidebar-left" class="sidebar-left">
-                    <?php include 'slide_left.php';?>   
+                    <?php include 'inc_slide_left.php';?>   
 				</aside>
 				<!-- end: sidebar -->
 
@@ -800,6 +799,6 @@
                 <?php include 'slide_right.php';?>                                                        
 			</aside>
 		</section>
-        <?php include 'foot.php';?>                                                              
+        <?php include 'inc_footer.php';?>                                                              
 	</body>
 </html>

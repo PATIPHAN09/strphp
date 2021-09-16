@@ -1,4 +1,7 @@
-
+<?php
+session_start();
+  
+?>
 				<div class="logo-container">
 					<a href="../" class="logo">
 						<img src="assets/images/logo.png" height="35" alt="JSOFT Admin" />
@@ -11,6 +14,7 @@
 				<!-- start: search & user box -->
 				<div class="header-right">
 			
+				<!-- 
 					<form action="pages-search-results.html" class="search nav-form">
 						<div class="input-group input-search">
 							<input type="text" class="form-control" name="q" id="q" placeholder="Search...">
@@ -19,16 +23,17 @@
 							</span>
 						</div>
 					</form>
-			
+				
 					<span class="separator"></span>
-			
+				-->
+				<!--
 					<ul class="notifications">
 						<li>
 							<a href="#" class="dropdown-toggle notification-icon" data-toggle="dropdown">
 								<i class="fa fa-tasks"></i>
 								<span class="badge">3</span>
 							</a>
-			
+				
 							<div class="dropdown-menu notification-menu large">
 								<div class="notification-title">
 									<span class="pull-right label label-default">3</span>
@@ -183,7 +188,7 @@
 						</li>
 					</ul>
 			
-					<span class="separator"></span>
+			-->		<span class="separator"></span>
 			
 					<div id="userbox" class="userbox">
 						<a href="#" data-toggle="dropdown">
@@ -191,7 +196,8 @@
 								<img src="assets/images/!logged-user.jpg" alt="Joseph Doe" class="img-circle" data-lock-picture="assets/images/!logged-user.jpg" />
 							</figure>
 							<div class="profile-info" data-lock-name="John Doe" data-lock-email="johndoe@JSOFT.com">
-								<span class="name">John Doe Junior</span>
+					
+								<span class="name"><?php echo  $_SESSION["user"]?></span>
 								<span class="role">administrator</span>
 							</div>
 			

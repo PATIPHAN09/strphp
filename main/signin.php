@@ -4,7 +4,7 @@ session_start();
 <!doctype html>
 <html class="fixed">
 <head>
-	<?php include 'head.php'; ?>
+	<?php include 'inc_head.php'; ?>
 </head>
 <body>
 	
@@ -28,7 +28,7 @@ session_start();
 			<p class="text-center text-muted mt-md mb-md">&copy; Copyright 2021. thank you very good thank tood very mush <a href="https://google.com">Google</a>.</p>
 		</div>
 	</section>
-	<?php include 'foot.php'; ?>
+	<?php include 'inc_footer.php'; ?>
 	
 </body>
 </html>
