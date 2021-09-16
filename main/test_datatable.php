@@ -5,6 +5,12 @@
 <html class="fixed">
 	<head>
         <?php include 'inc_head.php';?>
+		<style>
+				input[search]{
+					background-color: yellow;
+				}
+			
+		</style>
 	</head>
 	<body>
 		<section class="body">
@@ -41,17 +47,14 @@
 					<!-- end: page -->
 
                     <section class="panel">
-							<header class="panel-heading">
-								<div class="panel-actions">
-									<a href="#" class="fa fa-caret-down"></a>
-									<a href="#" class="fa fa-times"></a>
-								</div>
+							<header class="panel-heading panel-heading-transparent">
+						
 						
 								<h2 class="panel-title">Basic</h2>
 							</header>
 							<div class="panel-body">
 
-                                <table  class="table table-bordered table-striped mb-none" id="datatable-default" style="border:1px; text-align:center; width:ุ60%; margin:0px auto;" >  
+                                <table  class="table table-bordered table-striped mb-none" id="datatable-default"  >  
                                    
                                     <?php
                                         $query = "SELECT * FROM incpt";

@@ -799,7 +799,7 @@
 			</div>
 
 			<aside id="sidebar-right" class="sidebar-right">
-                <?php include 'slide_right.php';?>                                                        
+                <?php include 'inc_slide_right.php';?>                                                        
 			</aside>
 		</section>
         <?php include 'inc_footer.php';?>                                                              
