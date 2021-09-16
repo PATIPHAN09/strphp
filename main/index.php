@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html class="fixed">
 	<head>
@@ -133,6 +134,8 @@
 					</div>
 
 					<!-- start: page -->
+
+					
 					<div class="row">
 						<div class="col-md-6 col-lg-12 col-xl-6">
 							<section class="panel">

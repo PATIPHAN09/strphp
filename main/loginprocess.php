@@ -11,6 +11,8 @@ if(isset($_POST['save']))
     if(is_array($row))
     {
         $_SESSION["user"] = $user;
+        $_SESSION['flash_message'] = "I'm a flash message'";
+        
         header("Location: index.php"); 
     }
     else

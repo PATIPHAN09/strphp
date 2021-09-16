@@ -1,7 +1,7 @@
 <!-- Basic -->
 <meta charset="UTF-8">
 
-<title>Dashboard | JSOFT Themes | JSOFT-Admin</title>
+<title>ใบเสร็จอีเล็ค</title>
 <meta name="keywords" content="HTML5 Admin Template" />
 <meta name="description" content="JSOFT Admin - Responsive HTML5 Template">
 <meta name="author" content="JSOFT.net">
@@ -11,9 +11,10 @@
 
 <!-- Web Fonts  -->
 <!-- <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800|Shadows+Into+Light" rel="stylesheet" type="text/css">  -->
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fahkwang&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
 <!-- Vendor CSS -->
 <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.css" />
 <link rel="stylesheet" href="assets/vendor/font-awesome/css/font-awesome.css" />
@@ -24,6 +25,8 @@
 <link rel="stylesheet" href="assets/vendor/jquery-ui/css/ui-lightness/jquery-ui-1.10.4.custom.css" />
 <link rel="stylesheet" href="assets/vendor/bootstrap-multiselect/bootstrap-multiselect.css" />
 <link rel="stylesheet" href="assets/vendor/morris/morris.css" />
+<link rel="stylesheet" href="assets/vendor/select2/select2.css" />
+<link rel="stylesheet" href="assets/vendor/jquery-datatables-bs3/assets/css/datatables.css" />
 
 <!-- Theme CSS -->
 <link rel="stylesheet" href="assets/stylesheets/theme.css" />
@@ -36,3 +39,7 @@
 
 <!-- Head Libs -->
 <script src="assets/vendor/modernizr/modernizr.js"></script>
+
+<!-- Specific Page Vendor CSS -->
+<link rel="stylesheet" href="assets/vendor/select2/select2.css" />
+<link rel="stylesheet" href="assets/vendor/jquery-datatables-bs3/assets/css/datatables.css" />

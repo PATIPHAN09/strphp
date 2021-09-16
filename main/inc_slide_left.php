@@ -1,8 +1,8 @@
 
 
 <div class="sidebar-header">
-    <div class="sidebar-title">
-        Navigation
+    <div class="sidebar-title" style="color: black;">
+        เนวิเกชั่น
     </div>
     <div class="sidebar-toggle hidden-xs" data-toggle-class="sidebar-left-collapsed" data-target="html" data-fire-event="sidebar-left-toggle">
         <i class="fa fa-bars" aria-label="Toggle sidebar"></i>
@@ -14,11 +14,40 @@
         <nav id="menu" class="nav-main" role="navigation">
             <ul class="nav nav-main">
                 <li class="nav-active">
-                    <a href="index.html">
+                    <a href="index.php">
                         <i class="fa fa-home" aria-hidden="true"></i>
-                        <span>Dashboard</span>
+                        <span>แดชบอร์ด</span>
                     </a>
                 </li>
+                <li class="nav-parent">
+                    <a>
+                        <i class="fa fa-copy" aria-hidden="true"></i>
+                        <span>ทดสอบโปรแกรม</span>
+                    </a>
+                    <ul class="nav nav-children">
+                        <li>
+                            <a href="test_datatable.php">
+                                test_datatable
+                            </a>
+                        </li>
+                        <li>
+                            <a href="register.php">
+                                ลงทะเบียน
+                            </a>
+                        </li>
+                        <li>
+                            <a href="test_modal.php">
+                                TEST_MODAL
+                            </a>
+                        </li>
+                        <li>
+                            <a href="blankpage.php">
+                                blankpage
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+               <!-- 
                 <li>
                     <a href="mailbox-folder.html">
                         <span class="pull-right label label-primary">182</span>
@@ -26,6 +55,7 @@
                         <span>Mailbox</span>
                     </a>
                 </li>
+
                 <li class="nav-parent">
                     <a>
                         <i class="fa fa-copy" aria-hidden="true"></i>
@@ -109,6 +139,7 @@
                         </li>
                     </ul>
                 </li>
+
                 <li class="nav-parent">
                     <a>
                         <i class="fa fa-tasks" aria-hidden="true"></i>
@@ -382,6 +413,7 @@
                         </li>
                     </ul>
                 </li>
+                -->
             </ul>
         </nav>
 
