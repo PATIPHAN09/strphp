@@ -1,6 +1,6 @@
 <?php
-session_start();
-  
+    include('../backend/database.php');
+	
 ?>
 				<div class="logo-container">
 					<a href="../" class="logo">

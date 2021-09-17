@@ -45,6 +45,13 @@
                                 blankpage
                             </a>
                         </li>
+                        <li>
+                            <a href="electronic_receipt.php">
+                            electronic receipt
+                            </a>
+                        </li>
+
+                     
                     </ul>
                 </li>
                <!-- 

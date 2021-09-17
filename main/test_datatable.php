@@ -1,5 +1,6 @@
 <?php
-    include('database.php');
+    include('../backend/database.php');
+	session_start();
 ?>
 <!doctype html>
 <html class="fixed">
@@ -47,41 +48,43 @@
 					<!-- end: page -->
 
                     <section class="panel">
-							<header class="panel-heading panel-heading-transparent">
-						
-						
-								<h2 class="panel-title">Basic</h2>
-							</header>
-							<div class="panel-body">
+						<header class="panel-heading panel-heading-transparent">
+							<h2 class="panel-title">Basic</h2>
+						</header>
+						<div class="panel-body">
+							<table  class="table table-bordered table-striped mb-none" id="datatable-default"  >  
+								<?php
+									$query = "SELECT * FROM incpt";
+									$result = mysqli_query($conn, $query);
+									echo " 
+									<thead align='center' bgcolor='#CCCCCC'>
+										<tr>
+											<th>HN</th>
+											<th>INCDATE</th>
+											<th>INCTIME</th>
+											<th>INCOME</th>
+											<th>PRFORDERCODE</th>
+											<th>FUNCTION</th>
+										</tr>
+									</thead>";
+									while($row = mysqli_fetch_array($result)) {
+										echo "<tr>";
+										echo "<td>" .$row["HN"] .  "</td> ";
+										echo "<td>" .$row["INCDATE"] .  "</td> ";
+										echo "<td>" .$row["INCTIME"] .  "</td> ";
+										echo "<td>" .$row["INCOME"] .  "</td> ";
+										echo "<td>" .$row["PRFORDERCODE"] .  "</td> ";
+										echo "<td class='actions'>   
+										<a href='#' class='on-default edit-row'>". "<button type='button' class='btn btn-warning'><i class='fa fa-pencil'></i> </button> "."</a>
+										<a href='#' class='on-default edit-row'>". "<button type='button' class='btn btn-danger'><i class='fa fa-trash-o'></i> </button> "."</a>
+										</td>";
 
-                                <table  class="table table-bordered table-striped mb-none" id="datatable-default"  >  
-                                   
-                                    <?php
-                                        $query = "SELECT * FROM incpt";
-                                        $result = mysqli_query($conn, $query);
-                                        echo " 
-                                        <thead align='center' bgcolor='#CCCCCC'>
-                                            <tr>
-                                                <th>HN</th>
-                                                <th>INCDATE</th>
-												<th>INCTIME</th>
-												<th>INCOME</th>
-												<th>PRFORDERCODE</th>
-                                            </tr>
-									    </thead>";
-                                        while($row = mysqli_fetch_array($result)) {
-											echo "<tr>";
-											echo "<td>" .$row["HN"] .  "</td> ";
-											echo "<td>" .$row["INCDATE"] .  "</td> ";
-											echo "<td>" .$row["INCTIME"] .  "</td> ";
-											echo "<td>" .$row["INCOME"] .  "</td> ";
-											echo "<td>" .$row["PRFORDERCODE"] .  "</td> ";
-											echo "</tr>";
-                                        };
-                                    ?>			
-                                </table>	
-							</div>
-						</section>
+										echo "</tr>";
+									};
+								?>			
+							</table>	
+						</div>
+					</section>
 				</section>
 			</div>
 

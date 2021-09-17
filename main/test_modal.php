@@ -1,3 +1,7 @@
+<?php
+    include('../backend/database.php');
+	session_start();
+?>
 <!doctype html>
 <html class="fixed">
 	<head>
@@ -10,7 +14,6 @@
                 <?php include 'inc_header.php';?>
 			</header>
 			<!-- end: header -->
-
 			<div class="inner-wrapper">
 				<!-- start: sidebar -->
 				<aside id="sidebar-left" class="sidebar-left">
@@ -61,6 +64,7 @@
 			<aside id="sidebar-right" class="sidebar-right">
                 <?php include 'inc_slide_right.php';?>                                                        
 			</aside>
+			
 		</section>
         <?php include 'inc_footer.php';?>                                                              
 	</body>

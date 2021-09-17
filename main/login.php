@@ -19,7 +19,7 @@
 </head>
 <body>
 <div class="signup-form">
-    <form action="loginprocess.php" method="post" enctype="multipart/form-data">
+    <form action="../process/loginprocess.php" method="post" enctype="multipart/form-data">
 		<h2>Login</h2>
 		<p class="hint-text">Enter Login Details</p>
         <div class="form-group">

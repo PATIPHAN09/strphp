@@ -35,6 +35,8 @@
 							<a class="sidebar-right-toggle" data-open="sidebar-right"><i class="fa fa-chevron-left"></i></a>
 						</div>
 					</header>
+					<!-- start: page -->
+
 					<!-- end: page -->
 				</section>
 			</div>
