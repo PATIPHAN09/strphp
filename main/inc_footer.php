@@ -7,6 +7,10 @@
 <script src="assets/vendor/magnific-popup/magnific-popup.js"></script>
 <script src="assets/vendor/jquery-placeholder/jquery.placeholder.js"></script>
 
+
+
+
+
 <!-- Specific Page Vendor -->
 <script src="assets/vendor/jquery-ui/js/jquery-ui-1.10.4.custom.js"></script>
 <script src="assets/vendor/jquery-ui-touch-punch/jquery.ui.touch-punch.js"></script>
@@ -34,6 +38,13 @@
 <script src="assets/vendor/jqvmap/maps/continents/jquery.vmap.north-america.js"></script>
 <script src="assets/vendor/jqvmap/maps/continents/jquery.vmap.south-america.js"></script>
 
+
+		<!-- Specific Page Vendor -->
+		<script src="assets/vendor/select2/select2.js"></script>
+		<script src="assets/vendor/jquery-datatables/media/js/jquery.dataTables.js"></script>
+		<script src="assets/vendor/jquery-datatables/extras/TableTools/js/dataTables.tableTools.min.js"></script>
+		<script src="assets/vendor/jquery-datatables-bs3/assets/js/datatables.js"></script>
+
 <!-- Theme Base, Components and Settings -->
 <script src="assets/javascripts/theme.js"></script>
 
@@ -55,6 +66,6 @@
 
 <!-- Specific Page Vendor -->
 <script src="assets/vendor/select2/select2.js"></script>
-		<script src="assets/vendor/jquery-datatables/media/js/jquery.dataTables.js"></script>
-		<script src="assets/vendor/jquery-datatables/extras/TableTools/js/dataTables.tableTools.min.js"></script>
-		<script src="assets/vendor/jquery-datatables-bs3/assets/js/datatables.js"></script>
+<script src="assets/vendor/jquery-datatables/media/js/jquery.dataTables.js"></script>
+<script src="assets/vendor/jquery-datatables/extras/TableTools/js/dataTables.tableTools.min.js"></script>
+<script src="assets/vendor/jquery-datatables-bs3/assets/js/datatables.js"></script>

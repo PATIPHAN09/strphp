@@ -54,6 +54,40 @@
                      
                     </ul>
                 </li>
+                <li class="nav-parent">
+                    <a>
+                        <i class="fa fa-car" aria-hidden="true"></i>
+                        <span>LPL_KART</span>
+                    </a>
+                    <ul class="nav nav-children">
+             
+                        <li>
+                            <a href="lplstaff.php">
+                                STAFF
+                            </a>
+                        </li>
+                        <li>
+                            <a href="lpljob.php">
+                                JOB
+                            </a>
+                        </li>
+                        <li>
+                            <a href="tires.php">
+                                TIRES
+                            </a>
+                        </li>
+                        <li>
+                            <a href="driverteam.php">
+                                TEAM
+                            </a>
+                        </li>
+                        <li>
+                            <a href="driver.php">
+                                DRIVER
+                            </a>
+                        </li>
+                    </ul>
+                </li>
                <!-- 
                 <li>
                     <a href="mailbox-folder.html">

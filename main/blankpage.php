@@ -1,3 +1,7 @@
+<?php
+    include('../backend/database.php');
+	session_start();
+?>
 <!doctype html>
 <html class="fixed">
 	<head>

@@ -107,118 +107,25 @@ INSERT INTO INCPT (HN, INCDATE, INCTIME, ORDERCODE, INCOME, ITEMNO, ITEMNOSUB, P
 ===============================================================================
 ===============================================================================
 
-
-    select cuh.ipt.rgtdate		
-,cuh.ipt.hn		
-,cuh.ipt.an		
-		
-,cuh.pt.dspname		
-		
-,nvl(		
-		
-		
-(	select max(cuh.pttypeext.name )	
-	from cuh.incprvlg,cuh.pttypeext 	
-	where cuh.incprvlg.pttypeext = cuh.pttypeext.pttypeext 	
-		and cuh.incprvlg.hn =cuh.ipt.hn
-		and cuh.incprvlg.an = cuh.ipt.an
-		and cuh.incprvlg.canceldate is null
-		and cuh.incprvlg.subtype = 10
-)		
-		
-,'ชำระเงินเอง') as pttypext_name		
-		
-		
-,cuh.dct.name as doc_name
-,cuh.dct.hcode
-, cuh.dct.deptname
-
-		
-,(nvl((select max('[' || cuh.icd10.icd10 || ']' || cuh.icd10.name )		
-from  cuh.iptsumdiag ,cuh.icd10 		
-where cuh.iptsumdiag.icd10 = cuh.icd10.icd10 		
-and cuh.iptsumdiag.diagtype = 1		
-and cuh.iptsumdiag.diagorder = 1		
-and cuh.iptsumdiag.itemno = 1		
-and cuh.iptsumdiag.an = cuh.ipt.an) , cuh.ipt.prediag)) as diag		
-
-,(nvl((select max('[' || cuh.icd9cm.icd9cm || ']' || cuh.icd9cm.name )		
-from  cuh.iptsumoprt ,cuh.icd9cm 		
-where cuh.iptsumoprt.icd9cm = cuh.icd9cm.icd9cm 		
-and cuh.iptsumoprt.diagorder = 1		
-and cuh.iptsumoprt.itemno = 1		
-and cuh.iptsumoprt.an = cuh.ipt.an) , '')) as icd9		
-		
-		
-,cuh.ward.name as ward_name		
-		
-,sum(case when cuh.incpt.pttype <> 10 then cuh.incpt.incamt else 0 end) as cont_amt		
-,sum(case when cuh.incpt.pttype = 10 then cuh.incpt.incamt else 0 end) as pay_amt		
-,sum(cuh.incpt.incamt) as total_amt		
-		
-		
-,sum(case when cuh.arincome.incgrpipd = 10 then cuh.incpt.incamt else 0 end) as grp01		
-,sum(case when cuh.arincome.incgrpipd = 20 then cuh.incpt.incamt else 0 end) as grp02		
-,sum(case when cuh.arincome.incgrpipd = 30 then cuh.incpt.incamt else 0 end) as grp03		
-,sum(case when cuh.arincome.incgrpipd = 40 then cuh.incpt.incamt else 0 end) as grp04		
-,sum(case when cuh.arincome.incgrpipd = 50 then cuh.incpt.incamt else 0 end) as grp05		
-,sum(case when cuh.arincome.incgrpipd = 60 then cuh.incpt.incamt else 0 end) as grp06		
-,sum(case when cuh.arincome.incgrpipd = 70 then cuh.incpt.incamt else 0 end) as grp07		
-,sum(case when cuh.arincome.incgrpipd = 80 then cuh.incpt.incamt else 0 end) as grp08		
-,sum(case when cuh.arincome.incgrpipd = 90 then cuh.incpt.incamt else 0 end) as grp09		
-,sum(case when cuh.arincome.incgrpipd = 100 then cuh.incpt.incamt else 0 end) as grp10		
-,sum(case when cuh.arincome.incgrpipd = 110 then cuh.incpt.incamt else 0 end) as grp11		
-,sum(case when cuh.arincome.incgrpipd = 120 then cuh.incpt.incamt else 0 end) as grp12		
-,sum(case when cuh.arincome.incgrpipd = 130 then cuh.incpt.incamt else 0 end) as grp13		
-,sum(case when cuh.arincome.incgrpipd = 140 then cuh.incpt.incamt else 0 end) as grp14		
-,sum(case when cuh.arincome.incgrpipd = 150 then cuh.incpt.incamt else 0 end) as grp15		
-,sum(case when cuh.arincome.incgrpipd = 160 then cuh.incpt.incamt else 0 end) as grp16		
-,sum(case when cuh.arincome.incgrpipd = 170 then cuh.incpt.incamt else 0 end) as grp17		
-,sum(case when nvl( cuh.arincome.incgrpipd,180) = 180 then cuh.incpt.incamt else 0 end) as grp18		
-		
-		
-,sum(case when cuh.masterorder.dfflag = 1 and cuh.masterorder.income not in ('DF005','DF014','DF015','DF017','DF021','DF023','DF025','DF027','DF029','DF031','DF037') then cuh.incpt.incamt else 0 end ) as df_dct_amt		
-,sum(case when cuh.masterorder.dfflag = 1 and cuh.masterorder.income  in ('DF005','DF014','DF015','DF017','DF021','DF023','DF025','DF027','DF029','DF031','DF037') then cuh.incpt.incamt else 0 end ) as df_staff_amt		
-,sum(case when cuh.masterorder.dfflag = 1 then cuh.incpt.incamt else 0 end ) as df_all_amt		
-		
-		
-from cuh.ipt		
-	left outer join cuh.ward on cuh.ipt.ward = cuh.ward.ward	
-	left outer join cuh.iptsummary on cuh.ipt.an = cuh.iptsummary.an and cuh.ipt.hn = cuh.iptsummary.hn
-	left outer join cuh.dct on nvl(cuh.iptsummary.staffdct,cuh.ipt.dct) = cuh.dct.dct	
  
-,cuh.incpt		
-		
-,cuh.masterorder		
-	left outer join cuh.arincome on  cuh.masterorder.ordercode = cuh.arincome.ordercode and cuh.arincome.inctype = 10	
-,cuh.pt		
-where cuh.ipt.hn = cuh.pt.hn 		
-and cuh.ipt.spcclinicflag = 'Y'		
-and cuh.ipt.hn = cuh.incpt.hn		
-and cuh.ipt.an = cuh.incpt.an		
-and cuh.incpt.ordercode = cuh.masterorder.ordercode		
-and cuh.incpt.itemno >0		
-and cuh.incpt.incamt <> 0		
-and cuh.incpt.paidst not in (92,95)		
-		
-		
-and cuh.ipt.rgtdate >= to_date('01/03/2020','dd/mm/yyyy')		
-and cuh.ipt.rgtdate <= to_date('31/03/2020','dd/mm/yyyy')		
-		
-		
-group by cuh.ipt.rgtdate		
-,cuh.ipt.hn		
-,cuh.ipt.an		
-,cuh.pt.dspname			
-,cuh.dct.name
-,cuh.dct.hcode	
-, cuh.dct.deptname
-,cuh.ipt.prediag 		
-,cuh.ward.name		
-		
-order by  cuh.ipt.rgtdate		
-,cuh.ipt.an		
 
-;		
-
- 
+ CREATE TABLE `newchula`.`lplstaff` 
+( `STAFF` INT(5) NOT NULL AUTO_INCREMENT ,
+	`TITLE` VARCHAR(10),
+	`FNAME` VARCHAR(30),
+	`LANEM` VARCHAR(50),
+	`DOB` DATE,
+	`SEX` VARCHAR(10),
+	`DOB` DATE ,
+	`NAT` VARCHAR(20),
+	`CID` VARCHAR(13),
+	`BANK` VARCHAR(3),
+	`ID_BANK` VARCHAR(20),
+	`H_NO` VARCHAR(20),
+	`ROAD` VARCHAR(20),
+	`ALLEY` VARCHAR(20),
+	`COUNTRY` VARCHAR(20),
+	`DISTRICT` VARCHAR(20),
+	`PROVINCE` VARCHAR(20),
+	`POSTAL_CODE` VARCHAR(20),
+	PRIMARY KEY (`STAFF`));
