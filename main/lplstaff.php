@@ -51,12 +51,10 @@ session_start();
                     </header>
                     <div class="panel-body">
                         
+                     
+
                         <table class="table table-bordered table-striped mb-none" id="datatable-default">
-                            <?php
-                            $query = "SELECT * FROM staff";
-                            $result = mysqli_query($conn, $query);
-                            echo " 
-									<thead align='center' bgcolor='#CCCCCC'>
+                         <thead align='center' bgcolor='#CCCCCC'>
 										<tr>
 											<th>NO</th>
                                             <th>STAFF</th>
@@ -67,27 +65,41 @@ session_start();
                                             <th>BANK ID</th>
                                             <th>ADDRESS</th>
                                             <th>EDIT</th>
-
 										</tr>
-									</thead>";
-                            while ($row = mysqli_fetch_array($result)) {
-                                echo "<tr>";
-                                echo "<td>" ." ".  "</td> ";
-                   
-                                echo "<td>" . $row["STAFF"] .  "</td> ";
-                                echo "<td>" . $row["TITLE"] . $row["FNAME"] . $row["LNAME"]. "</td> ";
-                                echo "<td>" . $row["JOB_START"] .  "</td> ";
-                                echo "<td>" . $row["DOB"] .  "</td> ";
-                                echo "<td>" . $row["NAT"] .  "</td> ";
-                                echo "<td>" . $row["ID_BANK"] .  "</td> ";
-                                echo "<td>" . $row["H_NO"]. $row["ROAD"]. $row["ALLEY"]
-                                . $row["COUNTRY"]. $row["DISTRICT"]. $row["PROVINCE"] 
-                                . $row["POSTAL_CODE"] . "</td> ";
-                                echo "<td class='actions'>   
-										<a href='#' class='on-default edit-row' data-toggle='modal' data-target='#staff'>" . "<button type='button' class='btn btn-warning'><i class='fa fa-pencil'></i> </button> " . "</a>
-										</td>";
-                                echo "</tr>";
-                            };
+									</thead>
+
+                            <?php 
+                                $query = "SELECT * FROM staff";
+                                $result = mysqli_query($conn, $query);
+                                $projects = array();
+
+                                while ($project =  mysqli_fetch_array($result))
+                                {
+                                    $projects[] = $project;
+                                }
+                                //foreach ($projects as $project)
+                                foreach ($projects as $key => $_projects)
+                                {
+                            ?>
+                                <tr>
+                                    <td><?php echo $key + 1; ?></td>
+                                    <td><?php echo $key; ?></td>
+                                    <td><?php echo $key + 1; ?></td>
+                                    <td><?php echo $key + 1; ?></td>
+                                    <td><?php echo $key + 1; ?></td>
+                                    <td><?php echo $_projects['STAFF']; ?></td>
+                                    <td><?php echo $_projects['TITLE']; ?></td>
+                                    <td><?php echo $_projects['DOB']; ?></td>
+                                    <td class='actions'>   
+										<a href='#' class='on-default edit-row' data-toggle='modal' data-target='#staff'>
+                                            <button type='button' class='btn btn-warning'>
+                                                <i class='fa fa-pencil'></i> 
+                                            </button>
+                                        </a>
+                                    </td>";
+                                </tr>
+                            <?php
+                                }
                             ?>
                         </table>
                     </div>
