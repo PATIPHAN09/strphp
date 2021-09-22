@@ -20,7 +20,6 @@ session_start();
                 <?php include 'inc_slide_left.php'; ?>
             </aside>
             <!-- end: sidebar -->
-
             <section role="main" class="content-body">
                 <header class="page-header">
                     <h2>TEST DATATABLE</h2>
@@ -36,7 +35,6 @@ session_start();
                         <a class="sidebar-right-toggle" data-open="sidebar-right"><i class="fa fa-chevron-left"></i></a>
                     </div>
                 </header>
-                
                 <section class="panel">
                     <header class="panel-heading">
                     <div class="panel-actions">
@@ -44,15 +42,7 @@ session_start();
                         </div>
                         <h2 class="panel-title">STAFF</h2>
                     </header>
-
-              
-                  
-                      
-                    </header>
                     <div class="panel-body">
-                        
-                     
-
                         <table class="table table-bordered table-striped mb-none" id="datatable-default">
                          <thead align='center' bgcolor='#CCCCCC'>
 										<tr>
@@ -61,21 +51,16 @@ session_start();
                                             <th>NAME</th>
                                             <th>JOB_ST</th>
                                             <th>RATE</th>
-                                     
                                             <th>BANK ID</th>
                                             <th>ADDRESS</th>
                                             <th>EDIT</th>
 										</tr>
 									</thead>
-
                             <?php 
-                                //$query = "SELECT * FROM staff";
-                                $query = "SELECT staff.* , staff_address.*  , staff_rate.rate FROM staff
+                                $query = "SELECT staff.* , staff_address.*  , staff_rate.RATE FROM staff
                                 LEFT JOIN staff_address ON STAFF.STAFF = staff_address.STAFF
                                 LEFT JOIN staff_rate ON STAFF.STAFF = staff_rate.STAFF
                                 ORDER BY STAFF.STAFF;";
-
-
 
                                 $result = mysqli_query($conn, $query);
                                 $data = array();
@@ -85,20 +70,15 @@ session_start();
                                     $data[] = $project;
                                 }
                                
-                                //foreach ($projects as $project)
                                 foreach ($data as $key => $_data)
                                 {
                             ?>
-                            
                                 <tr>
                                     <td><?php echo $key + 1; ?></td>
                                     <td><?php echo $_data['STAFF']; ?></td>
-                                    <td><?php echo $_data['TITLE'] . $_data['FNAME'] .$_data['LNAME']; ?></td>
-                                   
+                                    <td><?php echo $_data['TITLE'] . " " . $_data['FNAME']. " "  .$_data['LNAME']; ?></td>
                                     <td><?php echo $_data['JOB_START']; ?></td>
-                                    <td><?php //echo $_data['RATE']; ?></td>
-                                    
-                        
+                                    <td><?php echo $_data['RATE']; ?></td>
                                     <td><?php echo $_data['ID_BANK']; ?></td>
                                     <td><?php echo $_data['H_NO'] . $_data['ROAD'] . $_data['ALLEY'] . $_data['COUNTRY'] .$_data['PROVINCE'] .$_data['POSTAL_CODE']; ?></td>
                                     <td class='actions'>   
@@ -107,7 +87,7 @@ session_start();
                                                 <i class='fa fa-pencil'></i> 
                                             </button>
                                         </a>
-                                    </td>";
+                                    </td>
                                 </tr>
                             <?php
                                 }
@@ -118,21 +98,19 @@ session_start();
             </section>
         </div>
         <div class="modal fade" id="staff" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-block modal-block-lg">
-        <div class="modal-content ">
+            <div class="modal-block modal-block-lg">
+                <div class="modal-content ">
 
-            <div class="modal-header ">
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title" id="myModalLabel">Are you sure?</h4>
-            </div>
+                    <div class="modal-header ">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Are you sure?</h4>
+                    </div>
 
-            <div class="modal-body">
-
-
-
-                <p>Are you sure that you want to delete this image?</p>
+                    <div class="modal-body">
 
 
+
+                        <p>Are you sure that you want to delete this image?</p>
 
 
 
@@ -141,15 +119,17 @@ session_start();
 
 
 
-                
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary">Confirm</button>
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+
+                        
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary">Confirm</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</div>
         
 
         <aside id="sidebar-right" class="sidebar-right">
