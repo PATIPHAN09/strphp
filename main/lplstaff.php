@@ -60,8 +60,8 @@ session_start();
                                             <th>STAFF</th>
                                             <th>NAME</th>
                                             <th>JOB_ST</th>
-                                            <th>DOB</th>
-                                            <th>NAT</th>
+                                            <th>RATE</th>
+                                     
                                             <th>BANK ID</th>
                                             <th>ADDRESS</th>
                                             <th>EDIT</th>
@@ -69,27 +69,38 @@ session_start();
 									</thead>
 
                             <?php 
-                                $query = "SELECT * FROM staff";
+                                //$query = "SELECT * FROM staff";
+                                $query = "SELECT staff.* , staff_address.*  , staff_rate.rate FROM staff
+                                LEFT JOIN staff_address ON STAFF.STAFF = staff_address.STAFF
+                                LEFT JOIN staff_rate ON STAFF.STAFF = staff_rate.STAFF
+                                ORDER BY STAFF.STAFF;";
+
+
+
                                 $result = mysqli_query($conn, $query);
-                                $projects = array();
+                                $data = array();
 
                                 while ($project =  mysqli_fetch_array($result))
                                 {
-                                    $projects[] = $project;
+                                    $data[] = $project;
                                 }
+                               
                                 //foreach ($projects as $project)
-                                foreach ($projects as $key => $_projects)
+                                foreach ($data as $key => $_data)
                                 {
                             ?>
+                            
                                 <tr>
                                     <td><?php echo $key + 1; ?></td>
-                                    <td><?php echo $key; ?></td>
-                                    <td><?php echo $key + 1; ?></td>
-                                    <td><?php echo $key + 1; ?></td>
-                                    <td><?php echo $key + 1; ?></td>
-                                    <td><?php echo $_projects['STAFF']; ?></td>
-                                    <td><?php echo $_projects['TITLE']; ?></td>
-                                    <td><?php echo $_projects['DOB']; ?></td>
+                                    <td><?php echo $_data['STAFF']; ?></td>
+                                    <td><?php echo $_data['TITLE'] . $_data['FNAME'] .$_data['LNAME']; ?></td>
+                                   
+                                    <td><?php echo $_data['JOB_START']; ?></td>
+                                    <td><?php //echo $_data['RATE']; ?></td>
+                                    
+                        
+                                    <td><?php echo $_data['ID_BANK']; ?></td>
+                                    <td><?php echo $_data['H_NO'] . $_data['ROAD'] . $_data['ALLEY'] . $_data['COUNTRY'] .$_data['PROVINCE'] .$_data['POSTAL_CODE']; ?></td>
                                     <td class='actions'>   
 										<a href='#' class='on-default edit-row' data-toggle='modal' data-target='#staff'>
                                             <button type='button' class='btn btn-warning'>
