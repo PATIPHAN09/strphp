@@ -6,8 +6,9 @@ if(isset($_POST['save']))
     $P = $_POST['password'];
     include '../backend/database.php';
     //$sql=mysqli_query($conn,"SELECT * FROM userlogin where password = '$P' and user = '$user'");
-    $sql=mysqli_query($conn,"SELECT * FROM userlogin where user = '$user' and  password = '$P'");
+    $sql = mysqli_query($conn,"SELECT * FROM userlogin where user = '$user' and  password = '$P'");
     $row  = mysqli_fetch_array($sql);
+
     if(is_array($row))
     {
         $_SESSION["user"] = $user;
