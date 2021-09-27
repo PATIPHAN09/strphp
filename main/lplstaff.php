@@ -47,44 +47,42 @@ session_start();
                             <thead align='center' bgcolor='#CCCCCC'>
                                 <tr>
                                     <th>NO</th>
-                                
+                                    <th>STAFF</th>
                                     <th>NAME</th>
-                                    <th>JOB_ST</th>
-                                    <th>RATE</th>
-                                    <th>BANK ID</th>
-                                    <th>ADDRESS</th>
+                                 
                                     <th>EDIT</th>
                                 </tr>
                             </thead>
+
+                           
                             <?php
-                            $result = mysqli_query($conn,"SELECT staff.* , staff_address.*  , staff_rate.RATE FROM staff
-                            LEFT JOIN staff_address ON STAFF.STAFF = staff_address.STAFF
-                            LEFT JOIN staff_rate ON STAFF.STAFF = staff_rate.STAFF
-                            ORDER BY STAFF.STAFF ASC;"); 
-                            foreach( $result as $key => $_data ) 
-                                {
-                            ?>
-                             <tr>
-                                    <td><?php echo $key + 1; ?></td>
-                                    <td><?php echo $_data['TITLE'] . " " . $_data['FNAME']. " "  .$_data['LNAME']; ?></td>
-                                    <td><?php echo $_data['JOB_START']; ?></td>
-                                    <td><?php echo $_data['RATE']; ?></td>
-                                    <td><?php echo $_data['ID_BANK']; ?></td>
-                                    <td><?php echo $_data['H_NO'] . $_data['ROAD'] . $_data['ALLEY'] . $_data['COUNTRY'] .$_data['PROVINCE'] .$_data['POSTAL_CODE']; ?></td>
-                                    <td class='actions'>   
-										<a href='edit_staff.php class='on-default edit-row' data-toggle='modal' data-target='#edit_staff'>
+                                $result = mysqli_query($conn,"SELECT * FROM STAFF");
+                                $i=0;
+                                while($row = mysqli_fetch_array($result)) {
+                                ?>
+                                <tr class="<?php if(isset($classname)) echo $classname;?>">
+                                <td><?php echo $row["STAFF"]; ?></td>
+                                <td><?php echo $row["FNAME"]; ?></td>
+                                <td><?php echo $row["LNAME"]; ?></td>
+                           
+                                <td><a href="delete_staff.php?STAFF=<?php echo $row["STAFF"]; ?>">Delete</a></td>
+
+                                <td class='actions'>   
+                                        <a href="delete_staff.php?STAFF=<?php echo $row["STAFF"]; ?>">
+										
                                             <button type='button' class='btn btn-warning'>
                                                 <i class='fa fa-pencil'></i> 
                                             </button>
                                         </a>
-                                        <a href='delete_staff.php?STAFF=<?php echo $_data['STAFF']; ?>"' class='on-default edit-row' >
-                                            <button type='button' class='btn btn-danger'>
+                                        <a href='delete_staff.php?STAFF=<?php echo $_data['D']; ?>"' class='on-default edit-row' >
+                                            <button type='submit' name="delete" class='btn btn-danger'>
                                             <i class="fa fa-trash-o"></i>
                                             </button>
                                         </a>
                                     </td>
-                                </tr>        
-                            <?php
+                                </tr>
+                                <?php
+                                $i++;
                                 }
                             ?>
                         </table>
