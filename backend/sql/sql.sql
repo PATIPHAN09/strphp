@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 22, 2021 at 10:30 AM
+-- Generation Time: Sep 29, 2021 at 11:28 AM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 7.3.27
 
@@ -229,28 +229,39 @@ INSERT INTO `incpt` (`HN`, `INCDATE`, `INCTIME`, `ORDERCODE`, `INCOME`, `ITEMNO`
 --
 
 CREATE TABLE `staff` (
-  `STAFF` int(5) NOT NULL,
-  `TITLE` varchar(10) COLLATE utf8_bin DEFAULT NULL,
-  `FNAME` varchar(30) COLLATE utf8_bin DEFAULT NULL,
-  `LNAME` varchar(30) COLLATE utf8_bin DEFAULT NULL,
-  `JOB_START` date DEFAULT NULL,
-  `SEX` varchar(20) COLLATE utf8_bin DEFAULT NULL,
-  `DOB` date DEFAULT NULL,
-  `NAT` varchar(20) COLLATE utf8_bin DEFAULT NULL,
-  `CID` varchar(20) COLLATE utf8_bin DEFAULT NULL,
-  `BANK` varchar(20) COLLATE utf8_bin DEFAULT NULL,
-  `ID_BANK` varchar(20) COLLATE utf8_bin DEFAULT NULL,
-  `CREATE` date NOT NULL,
-  `UPDATE` date NOT NULL,
-  `STATUS` char(1) COLLATE utf8_bin NOT NULL
+  `id` int(11) NOT NULL,
+  `staff_id` int(5) NOT NULL,
+  `title` varchar(10) COLLATE utf8_bin DEFAULT NULL,
+  `fname` varchar(30) COLLATE utf8_bin DEFAULT NULL,
+  `lname` varchar(30) COLLATE utf8_bin DEFAULT NULL,
+  `jobstart` date DEFAULT NULL,
+  `sex` varchar(20) COLLATE utf8_bin DEFAULT NULL,
+  `dob` date DEFAULT NULL,
+  `nat` varchar(20) COLLATE utf8_bin DEFAULT NULL,
+  `eth` varchar(20) COLLATE utf8_bin DEFAULT NULL,
+  `cid` varchar(20) COLLATE utf8_bin DEFAULT NULL,
+  `bank` varchar(20) COLLATE utf8_bin DEFAULT NULL,
+  `id_bank` varchar(20) COLLATE utf8_bin DEFAULT NULL,
+  `createdate` date DEFAULT NULL,
+  `updatedate` date DEFAULT NULL,
+  `status` char(1) COLLATE utf8_bin DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `staff`
 --
 
-INSERT INTO `staff` (`STAFF`, `TITLE`, `FNAME`, `LNAME`, `JOB_START`, `SEX`, `DOB`, `NAT`, `CID`, `BANK`, `ID_BANK`, `CREATE`, `UPDATE`, `STATUS`) VALUES
-(1, 'นาย', 'ปฎิภาน', 'สายเพ็ชร', '2021-09-01', 'ชาบย', '1996-02-06', 'ไทย', '1100201202279', NULL, NULL, '2015-07-01', '2015-07-01', '');
+INSERT INTO `staff` (`id`, `staff_id`, `title`, `fname`, `lname`, `jobstart`, `sex`, `dob`, `nat`, `eth`, `cid`, `bank`, `id_bank`, `createdate`, `updatedate`, `status`) VALUES
+(0, 35, 'เธ�เธฒเธ�', 'เน…/-/เน…-', '/เน…-/เน…-', '0000-00-00', 'เธ�เธฒเธข', '0000-00-00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'n'),
+(0, 36, 'เธ�เธฒเธข', '123', '213', '0000-00-00', 'เธ�เธฒเธข', '0000-00-00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'n'),
+(0, 37, 'เธ�เธฒเธข', '111', '', '0000-00-00', 'เธ�เธฒเธข', '0000-00-00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'n'),
+(0, 38, 'เธ�เธฒเธ�', '1', '1', '2021-09-18', 'เธซเธ�เธดเธ�', '2021-09-08', '1', '1', '1', '1', '1', NULL, NULL, '1'),
+(0, 39, 'เธ�เธฒเธข', '1', '', '2021-09-29', 'เธ�เธฒเธข', '0000-00-00', '', '', '', '', '', NULL, NULL, 'n'),
+(0, 40, 'เธ�เธฒเธข', '1', '', '2021-09-29', 'เธ�เธฒเธข', '0000-00-00', '', '', '', '', '', NULL, NULL, 'n'),
+(0, 41, '1', '1', '', '2021-09-07', '2', '0000-00-00', '', '', '', '', '', NULL, NULL, 'n'),
+(0, 42, '1', '123', '213', '0000-00-00', '2', '2021-09-03', '213', '213', '213', '213', '213', NULL, NULL, 'y'),
+(0, 45, '1', '', '1', '0000-00-00', '1', '0000-00-00', '', '', '', '', '', '2021-09-29', '2021-09-29', 'y'),
+(0, 46, '1', '213', '213', '0000-00-00', '1', '0000-00-00', '', '', '', '', '', '2021-09-29', '2021-09-29', 'y');
 
 -- --------------------------------------------------------
 
@@ -259,24 +270,25 @@ INSERT INTO `staff` (`STAFF`, `TITLE`, `FNAME`, `LNAME`, `JOB_START`, `SEX`, `DO
 --
 
 CREATE TABLE `staff_address` (
-  `STAFF` int(10) NOT NULL,
-  `H_NO` varchar(10) COLLATE utf8_bin DEFAULT NULL,
-  `ROAD` varchar(30) COLLATE utf8_bin DEFAULT NULL,
-  `ALLEY` varchar(30) COLLATE utf8_bin DEFAULT NULL,
-  `COUNTRY` varchar(30) COLLATE utf8_bin DEFAULT NULL,
-  `DISTRICT` varchar(30) COLLATE utf8_bin DEFAULT NULL,
-  `PROVINCE` varchar(30) COLLATE utf8_bin DEFAULT NULL,
-  `POSTAL_CODE` int(6) DEFAULT NULL,
-  `CREATE` date DEFAULT NULL,
-  `UPDATE` date DEFAULT NULL
+  `id` int(5) NOT NULL,
+  `staff_id` int(10) NOT NULL,
+  `h_no` varchar(10) COLLATE utf8_bin DEFAULT NULL,
+  `road` varchar(30) COLLATE utf8_bin DEFAULT NULL,
+  `alley` varchar(30) COLLATE utf8_bin DEFAULT NULL,
+  `country` varchar(30) COLLATE utf8_bin DEFAULT NULL,
+  `district` varchar(30) COLLATE utf8_bin DEFAULT NULL,
+  `province` varchar(30) COLLATE utf8_bin DEFAULT NULL,
+  `postal_code` int(6) DEFAULT NULL,
+  `createdate` date DEFAULT NULL,
+  `updatedate` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `staff_address`
 --
 
-INSERT INTO `staff_address` (`STAFF`, `H_NO`, `ROAD`, `ALLEY`, `COUNTRY`, `DISTRICT`, `PROVINCE`, `POSTAL_CODE`, `CREATE`, `UPDATE`) VALUES
-(1, '196', 'จรัญสนิทวงศ์', '71', 'บางพลัด', 'บางพลัด', 'กรุงเทพ', 10700, '2021-09-22', '2021-09-22');
+INSERT INTO `staff_address` (`staff_id`, `h_no`, `road`, `alley`, `country`, `district`, `province`, `postal_code`, `createdate`, `updatedate`) VALUES
+(1, '196', 'เธ�เธฃเธฑเธ�เธชเธ�เธดเธ—เธงเธ�เธจเน�', '71', 'เธ�เธฒเธ�เธ�เธฅเธฑเธ”', 'เธ�เธฒเธ�เธ�เธฅเธฑเธ”', 'เธ�เธฃเธธเธ�เน€เธ—เธ�', 10700, '2021-09-22', '2021-09-22');
 
 -- --------------------------------------------------------
 
@@ -285,18 +297,12 @@ INSERT INTO `staff_address` (`STAFF`, `H_NO`, `ROAD`, `ALLEY`, `COUNTRY`, `DISTR
 --
 
 CREATE TABLE `staff_rate` (
-  `STAFF` int(10) NOT NULL,
-  `RATE` int(20) DEFAULT NULL,
-  `CREATE` date DEFAULT NULL,
-  `UPDATE` date DEFAULT NULL
+  `id` int(5) NOT NULL,
+  `staff_id` int(10) NOT NULL,
+  `rate` int(20) DEFAULT NULL,
+  `createdate` date DEFAULT NULL,
+  `updatedate` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
---
--- Dumping data for table `staff_rate`
---
-
-INSERT INTO `staff_rate` (`STAFF`, `RATE`, `CREATE`, `UPDATE`) VALUES
-(1, 700, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -329,7 +335,7 @@ INSERT INTO `userlogin` (`id`, `user`, `password`, `createdate`, `level`, `statu
 -- Indexes for table `staff`
 --
 ALTER TABLE `staff`
-  ADD PRIMARY KEY (`STAFF`);
+  ADD PRIMARY KEY (`staff_id`);
 
 --
 -- Indexes for table `userlogin`
@@ -345,7 +351,7 @@ ALTER TABLE `userlogin`
 -- AUTO_INCREMENT for table `staff`
 --
 ALTER TABLE `staff`
-  MODIFY `STAFF` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `staff_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT for table `userlogin`
@@ -357,3 +363,32 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+
+$data_list = DB::table('nurse_note')
+->where('factory_id', '=', $f_id)
+->where('service_date', '>=', $yy.'-01-01')
+->orderBy('document_number', 'DESC')
+->first();
+
+if($data_list == ""){
+  $doclast = $f_id . '/' . '0001/' . $year;
+  }else{
+$id = $f_id . '/' . '0000' . $year;
+if ($data_list->document_number != 0) {
+$id = $data_list->document_number;
+$doc = explode('/', $id);
+
+$res = $doc[1];
+$res = (int) $res + 1;
+if ($res > 0 && $res < 10)
+{ $res2='000' . $res; }
+elseif ($res> 9 && $res < 100)
+{ $res2='00' . $res; }
+elseif ($res> 99 && $res <1000)
+{ $res2='0' . $res; }
+elseif ($res> 999 && $res < 10000)
+{ $res2='' . $res; }
+$doclast=$doc[0] . '/' .$res2 . '/' . $doc[2]; }
+else { $doclast=$f_id . '/'. 0001 . '/' . $year; }
+} ?>

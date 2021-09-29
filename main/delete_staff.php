@@ -4,10 +4,10 @@
     extract($_POST);
     include '../backend/database.php';
 
-    $sql = "DELETE FROM staff WHERE STAFF='" . $_GET["STAFF"] . "'";
+    $sql = " DELETE FROM staff WHERE staff_id ='" . $_GET["staff_id"] . "'";
     if (mysqli_query($conn, $sql)) {
-        echo "Record deleted successfully";
-        header("Location: index.php"); 
+        $_SESSION['delete_success'] = "Record deleted successfully";
+        header("Location: lplstaff.php"); 
     } else {
         echo "Error deleting record: " . mysqli_error($conn);
     }

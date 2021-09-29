@@ -4,20 +4,23 @@ include('inc_head.php');
 if(isset($_POST['save']))
     {
         extract($_POST);
+        $date = date('Y-m-d');
+        
         include '../backend/database.php';
-        $sql = "INSERT INTO staff (FNAME, LNAME) VALUES ('$FNAME', '$LNAME')";
+        $sql = "INSERT INTO staff (title, fname, lname, job_start, sex, dob, nat, eth, cid, bank, id_bank, createdate,updatedate,status) 
+        VALUES ('$TITLE', '$FNAME', '$LNAME', '$JOB_START','$SEX' ,'$DOB' ,'$NAT' ,'$ETH' ,'$CID' ,'$BANK' ,'$ID_BANK','$date' ,'$date' , 'y')";
       
         if($conn->query($sql) === true){
-            echo "  <script>
-                        alert('บันทึกสำเร็จ');
-                        window.location.href='lplstaff.php';
-                    </script>"; 
+            $_SESSION['insert_success'] = "Record data successfully";
+            header("Location: lplstaff.php"); 
         } else{
-
+            $_SESSION['insert_fail'] = "Record data Fail!!!!";
+           
             echo "  <script>
-                        alert('บันทึกไม่สำเร็จ');
+            
+                        alert('$JOB_START');
                         window.location.href='lplstaff.php';
-                    </script>";   }
+                    </script>";   }                    
     }
 //mysqli_close($conn);
 ?>
