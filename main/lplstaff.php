@@ -66,7 +66,7 @@ session_start();
                                 <tr>
                                     <th>No.</th>
                                     <th>STAFF</th>
-                                    <th>TITLE</th>
+                                    
                                     <th>Name</th>
                                    
                                     <th>STATUS</th>
@@ -75,51 +75,40 @@ session_start();
                             </thead>
 
                            
-                            <?php
-                       
-                                $sql = " SELECT staff.* , staff_rate.rate
-                                FROM staff 
-                                LEFT JOIN staff_rate
-                                ON staff.staff_id = staff_rate.staff_id
-                                WHERE staff.status = 'y'";
-                          
+                            <?php         
+                                $sql = " SELECT * FROM staff WHERE status = 'y'";
                                 $result = mysqli_query($conn,$sql);
                                 $i=0;
-
                                 while($row = mysqli_fetch_array($result)) {
                             ?>
                                 <tr >
-                                
                                     <td><?php echo $i+1;?></td>
                                     <td><?php echo $row["staff_id"]; ?></td>
-                                    <td><?php 
-                                        $realtitle = '';
-                                    if($row["title"] == '1')
-                                    {
-                                        $realtitle = 'นาย';
-                                    } else if ($row["title"] == '2') {
-                                        $realtitle = 'นาง';
-                                    }else if ($row["title"] == '3') {
-                                        $realtitle = 'นางสาว';
-                                    }
-                                    echo $realtitle; 
-                                    
-                                    
-                                    
-                                    ?></td>
-                                    <td><?php echo $row["fname"] . "  " .$row["lname"]; ?></td>
-                                    
+                                    <td>
+                                    <?php 
+                                       $realtitle = '';
+                                       if($row["title"] == '1')
+                                       {
+                                           $realtitle = 'นาย';
+                                       } else if ($row["title"] == '2') 
+                                        {
+                                           $realtitle = 'นาง';
+                                       }else if ($row["title"] == '3') 
+                                        {
+                                           $realtitle = 'นางสาว';
+                                       }
+                                        echo  $realtitle ." ". $row["fname"] . "  " .$row["lname"]; 
+                                    ?>
+                                    </td>
                                     <td><?php echo $row["status"]; ?></td>
                                     <td class='actions'>   
-
-                                        <a href='#' class='on-default edit-row' data-toggle="modal" data-target="#edit_staff">
-                                   
+                                        <a href="edit_staff.php?staff_id=<?php echo $row["staff_id"]; ?>" >
                                             <button type='button' class='btn btn-warning'>
                                                 <i class='fa fa-pencil'></i> 
                                             </button>
                                         </a>
 
-                                        <a href=delete_staff.php?staff_id=<?php echo $row["staff_id"]; ?>" onclick="return confirm('คุณต้องการลบข้อมูลที่เลือก')" type="button">
+                                        <a href="delete_staff.php?staff_id=<?php echo $row["staff_id"]; ?>" onclick="return confirm('คุณต้องการลบข้อมูลที่เลือก')" type="button">
                                             <i class="fa fa-trash" aria-hidden="true"></i>
                                             <button type='submit' name="delete" class='btn btn-danger'>
                                                 <i class="fa fa-trash-o"></i>
@@ -161,14 +150,14 @@ session_start();
                                 <div class="form-group">
                                     <label class="col-md-3 control-label" for="inputDefault">FNAME</label>
                                     <div class="col-md-6">
-                                        <input type="text" class="form-control" id="FNAME" name="FNAME">
+                                        <input type="text" class="form-control" id="FNAME" name="FNAME" max="30">
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <label class="col-md-3 control-label" for="inputDefault">LNAME</label>
                                     <div class="col-md-6">
-                                        <input type="text" class="form-control" id="LNAME" name="LNAME">
+                                        <input type="text" class="form-control" id="LNAME" name="LNAME" max="30">
                                     </div>
                                 </div>
 
@@ -192,15 +181,17 @@ session_start();
                                         <select class="form-control" id="SEX" name="SEX">
                                             <option value="1">ชาย</option>
                                             <option value="2">หญิง</option>    
-                                        </select> </div>
+                                        </select> 
+                                    </div>
                                 </div>
 
                                 <div class="form-group">
                                     <label class="col-md-3 control-label" for="inputDefault">NAT</label>
-                                        <div class="col-md-6">
-                                            <input type="text" class="form-control" id="NAT" name="NAT">
-                                        </div>
-                                    </div>                           
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control" id="NAT" name="NAT">
+                                    </div>
+                                </div>  
+
                                 <div class="form-group">
                                     <label class="col-md-3 control-label" for="inputDefault">ETH</label>
                                     <div class="col-md-6">

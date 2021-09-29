@@ -3,8 +3,8 @@
     session_start();
     extract($_POST);
     include '../backend/database.php';
-
-    $sql = " DELETE FROM staff WHERE staff_id ='" . $_GET["staff_id"] . "'";
+    $sql = "UPDATE staff SET status = 'n'  WHERE staff_id ='" . $_GET["staff_id"] . "'";
+  
     if (mysqli_query($conn, $sql)) {
         $_SESSION['delete_success'] = "Record deleted successfully";
         header("Location: lplstaff.php"); 

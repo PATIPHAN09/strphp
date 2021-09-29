@@ -229,12 +229,12 @@ INSERT INTO `incpt` (`HN`, `INCDATE`, `INCTIME`, `ORDERCODE`, `INCOME`, `ITEMNO`
 --
 
 CREATE TABLE `staff` (
-  `id` int(11) NOT NULL,
   `staff_id` int(5) NOT NULL,
   `title` varchar(10) COLLATE utf8_bin DEFAULT NULL,
   `fname` varchar(30) COLLATE utf8_bin DEFAULT NULL,
   `lname` varchar(30) COLLATE utf8_bin DEFAULT NULL,
   `jobstart` date DEFAULT NULL,
+  `status` char(1) COLLATE utf8_bin DEFAULT NULL,
   `sex` varchar(20) COLLATE utf8_bin DEFAULT NULL,
   `dob` date DEFAULT NULL,
   `nat` varchar(20) COLLATE utf8_bin DEFAULT NULL,
@@ -242,9 +242,15 @@ CREATE TABLE `staff` (
   `cid` varchar(20) COLLATE utf8_bin DEFAULT NULL,
   `bank` varchar(20) COLLATE utf8_bin DEFAULT NULL,
   `id_bank` varchar(20) COLLATE utf8_bin DEFAULT NULL,
+  `rate` int(20) DEFAULT NULL,
+  `h_no` varchar(10) COLLATE utf8_bin DEFAULT NULL,
+  `road` varchar(30) COLLATE utf8_bin DEFAULT NULL,
+  `alley` varchar(30) COLLATE utf8_bin DEFAULT NULL,
+  `country` varchar(30) COLLATE utf8_bin DEFAULT NULL,
+  `district` varchar(30) COLLATE utf8_bin DEFAULT NULL,
+  `province` varchar(30) COLLATE utf8_bin DEFAULT NULL,
   `createdate` date DEFAULT NULL,
-  `updatedate` date DEFAULT NULL,
-  `status` char(1) COLLATE utf8_bin DEFAULT NULL
+  `updatedate` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
@@ -299,7 +305,7 @@ INSERT INTO `staff_address` (`staff_id`, `h_no`, `road`, `alley`, `country`, `di
 CREATE TABLE `staff_rate` (
   `id` int(5) NOT NULL,
   `staff_id` int(10) NOT NULL,
-  `rate` int(20) DEFAULT NULL,
+  
   `createdate` date DEFAULT NULL,
   `updatedate` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;

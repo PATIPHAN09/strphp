@@ -40,20 +40,30 @@
 						</div>
 					</header>
 					<!-- start: page -->
-					<?php
-						session_start();
-						extract($_POST);
-						include '../backend/database.php';
-						$sql = "UPDATE staff SET status = 'n'  WHERE staff_id ='" . $_GET["staff_id"] . "'";
-					
-						if (mysqli_query($conn, $sql)) {
-							$_SESSION['delete_success'] = "Record deleted successfully";
-							header("Location: lplstaff.php"); 
-						} else {
-							echo "Error deleting record: " . mysqli_error($conn);
-						}
+                    <?php
+                        $sql = " SELECT * FROM staff WHERE staff_id ='". $_GET['staff_id']. "'";
+                        $result = mysqli_query($conn,$sql);
+                        while ($row = $result->fetch_assoc()) {
+                    ?>
+                    <form  form action="#" method="post" enctype="multipart/form-data"class="form-horizontal form-bordered">
 
+
+                    
+                        <div class="form-group">
+                            <label class="col-md-1 control-label" for="inputDefault">staff_id</label>
+                            <div class="col-md-3">
+                            <input type="text" class="form-control" id="DOB" name="DOB" value="<?php echo $row['staff_id']; ?>">
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-success" name="save">save</button>
+                    </form>      
+                    <?php
+                        }
 					?>
+
+
+
 					<!-- end: page -->
 				</section>
 			</div>
